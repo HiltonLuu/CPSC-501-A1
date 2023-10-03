@@ -14,6 +14,14 @@ public class Expense {
         this.month = "JAN";
     }
 
+    public Expense(String category, Double amount, String comment, int year, String month) {
+        this.category = category;
+        this.amount = amount;
+        this.comment = comment;
+        this.year = year;
+        this.month = month;
+    }
+
     public String getCategory() {
         return this.category;
     }
