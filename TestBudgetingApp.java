@@ -1,11 +1,7 @@
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
-
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -114,24 +110,24 @@ public class TestBudgetingApp {
         scanner.close();
     }
 
-    /*
+    
     @Test
     public void testCashFlowCalc() {
         //initializing variables
-        ArrayList<Income> income = new ArrayList<>();
-        income.add(new Income("s", 2000.0, "", 2023, "JAN"));
-        income.add(new Income("s", 2000.0, "", 2023, "JAN"));
-        income.add(new Income("s", 2000.0, "", 2023, "JAN"));
+        IncomeTracker income = new IncomeTracker();
+        income.addData(new Income("s", 2000.0, "", 2023, "JAN"));
+        income.addData(new Income("s", 2000.0, "", 2023, "JAN"));
+        income.addData(new Income("s", 2000.0, "", 2023, "JAN"));
 
-        ArrayList<Expense> expense = new ArrayList<>();
-        expense.add(new Expense("f", 5000.0, "", 2023, "JAN"));
+        ExpenseTracker expense = new ExpenseTracker();
+        expense.addData(new Expense("f", 5000.0, "", 2023, "JAN"));
 
         HashMap<String, Double> cashFlow = new HashMap<>();
-        BudgetingApp.addIncomeToCashFlow(income, cashFlow);
-        BudgetingApp.addExpenseToCashFlow(expense, cashFlow);
+        income.addToCashFlow(cashFlow);
+        expense.addToCashFlow(cashFlow);
 
         assertEquals(1000.0, cashFlow.get("JAN"), 0.1);
     }
-    */
+    
 
 }

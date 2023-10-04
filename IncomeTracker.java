@@ -53,7 +53,7 @@ public class IncomeTracker extends Tracker {
     }
 
     public void addToCashFlow(HashMap<String, Double> cashFlow) {
-        /*
+        
         for (BudgetType i : this.budgetTypes) {
             if (cashFlow.containsKey(i.getMonth())) {
                 cashFlow.put(i.getMonth(), cashFlow.get(i.getMonth()) + i.getAmount());
@@ -61,7 +61,7 @@ public class IncomeTracker extends Tracker {
                 cashFlow.put(i.getMonth(), i.getAmount());
             }
         }
-        */
+        
     }
     
 }

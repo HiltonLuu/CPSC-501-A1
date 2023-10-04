@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.HashMap;
 
@@ -53,13 +52,10 @@ public class BudgetingApp {
                     cashFlow.clear();
 
                     //monthly cash flow calculation
-                    /*
-                    addIncomeToCashFlow(income.getBudgetTypeList(), cashFlow);
-                    addExpenseToCashFlow(expense.getBudgetTypeList(), cashFlow);
-
+                    income.addToCashFlow(cashFlow);
+                    expense.addToCashFlow(cashFlow);
                     printMonthlyCashFlow(cashFlow);
-                    */
-
+                    
                     break;
                 case "?":
                     System.out.println("Exiting the Budgeting App program.");
