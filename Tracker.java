@@ -22,16 +22,16 @@ public abstract class Tracker {
 
     public Double askAmount() {
         System.out.println("What is the amount?");
-        Double in = scanner.nextDouble();
-        if (in < 0) { in = in * -1; }
-        return in;            
+        Double userInput = scanner.nextDouble();
+        if (userInput < 0) { userInput = userInput * -1; }
+        return userInput;            
     }
 
     public int askYear() {
         System.out.println("What Year?");
-        int in = scanner.nextInt();
-        if (in < 2000) { return 2023; }
-        return in;
+        int userInput = scanner.nextInt();
+        if (userInput < 2000) { return 2023; }
+        return userInput;
     }
 
     public String askMonth() {
@@ -50,9 +50,9 @@ public abstract class Tracker {
         months.add("DEC");
 
         System.out.println("What Month? (JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC)");
-        String in = scanner.nextLine();
-        if (!months.contains(in)) { return ""; }
-        return in;
+        String userInput = scanner.nextLine();
+        if (!months.contains(userInput)) { return ""; }
+        return userInput;
     }
 
     public String askComment() {

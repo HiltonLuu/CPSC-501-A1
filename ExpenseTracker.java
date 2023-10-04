@@ -13,24 +13,24 @@ public class ExpenseTracker extends Tracker {
     }
 
     public String askCategory() {
-        String in = "";
+        String userInput = "";
 
-        ArrayList<String> expenseCats = new ArrayList<>();
-        expenseCats.add("f");
-        expenseCats.add("v");
-        expenseCats.add("d");
+        ArrayList<String> expenseCategories = new ArrayList<>();
+        expenseCategories.add("f");
+        expenseCategories.add("v");
+        expenseCategories.add("d");
 
         System.out.println("Add Expense Selected. What category of expense is it?");
         System.out.println("f: Fixed");
         System.out.println("v: Variable");
         System.out.println("d: Discretionary");
-        in = scanner.nextLine();
+        userInput = scanner.nextLine();
 
-        if (!expenseCats.contains(in)) {
+        if (!expenseCategories.contains(userInput)) {
             return "";
         }
 
-        return in;
+        return userInput;
     }
 
     public BudgetType askData() {
@@ -52,11 +52,11 @@ public class ExpenseTracker extends Tracker {
 
     public void addToCashFlow(HashMap<String, Double> cashFlow) {
         
-        for (BudgetType e : this.budgetTypes) {
-            if (cashFlow.containsKey(e.getMonth())) {
-                cashFlow.put(e.getMonth(), cashFlow.get(e.getMonth()) - e.getAmount());
+        for (BudgetType expense : this.budgetTypes) {
+            if (cashFlow.containsKey(expense.getMonth())) {
+                cashFlow.put(expense.getMonth(), cashFlow.get(expense.getMonth()) - expense.getAmount());
             } else {
-                cashFlow.put(e.getMonth(), e.getAmount() * -1);
+                cashFlow.put(expense.getMonth(), expense.getAmount() * -1);
             }
         }
 

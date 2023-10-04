@@ -10,24 +10,24 @@ public class BudgetingApp {
         System.out.println("3: Generate Report");
         System.out.println("?: Exit the program");
 
-        String in = scanner.nextLine();
-        if (!in.equals("1") && !in.equals("2") && !in.equals("3") && !in.equals("?")) { in = ""; }
-        return in;
+        String userOption = scanner.nextLine();
+        if (!userOption.equals("1") && !userOption.equals("2") && !userOption.equals("3") && !userOption.equals("?")) { userOption = ""; }
+        return userOption;
     }
 
     public static void printMonthlyCashFlow(HashMap<String, Double> cashFlow) {
         System.out.println("Cash Flow Calculation:");
-        for (String key : cashFlow.keySet()) {
+        for (String month : cashFlow.keySet()) {
             // Access and work with the key
-            System.out.println(key + ": " + cashFlow.get(key));
+            System.out.println(month + ": " + cashFlow.get(month));
         }
     }
     public static void main(String[] args) {
         
         //initializing variables
         HashMap<String, Double> cashFlow = new HashMap<>();
-        IncomeTracker income = new IncomeTracker();
-        ExpenseTracker expense = new ExpenseTracker();
+        IncomeTracker incomeTracker = new IncomeTracker();
+        ExpenseTracker expenseTracker = new ExpenseTracker();
 
         Scanner scanner = new Scanner(System.in);
         
@@ -39,11 +39,11 @@ public class BudgetingApp {
 
             switch (input) {
                 case "1":
-                    income.addData(income.askData());
+                    incomeTracker.addData(incomeTracker.askData());
                     System.out.println("Income has been added successfully");
                     break;
                 case "2":
-                    expense.addData(expense.askData());
+                    expenseTracker.addData(expenseTracker.askData());
                     System.out.println("Expense has been added successfully");
                     break;
                 case "3":
@@ -52,8 +52,8 @@ public class BudgetingApp {
                     cashFlow.clear();
 
                     //monthly cash flow calculation
-                    income.addToCashFlow(cashFlow);
-                    expense.addToCashFlow(cashFlow);
+                    incomeTracker.addToCashFlow(cashFlow);
+                    expenseTracker.addToCashFlow(cashFlow);
                     printMonthlyCashFlow(cashFlow);
                     
                     break;

@@ -13,26 +13,26 @@ public class IncomeTracker extends Tracker {
     }
 
     public String askCategory() {
-        String in = "";
+        String userInput = "";
 
-        ArrayList<String> incomeCats = new ArrayList<>();
-        incomeCats.add("s");
-        incomeCats.add("w");
-        incomeCats.add("f");
-        incomeCats.add("r");
+        ArrayList<String> incomeCategories = new ArrayList<>();
+        incomeCategories.add("s");
+        incomeCategories.add("w");
+        incomeCategories.add("f");
+        incomeCategories.add("r");
 
         System.out.println("Add Income Selected. What category of income is it?");
         System.out.println("s: Salary (Bi-Weekly)");
         System.out.println("w: Wage (Hourly)");
         System.out.println("f: Freelance Income");
         System.out.println("r: Rental Income");
-        in = this.scanner.nextLine();
+        userInput = this.scanner.nextLine();
 
-        if (!incomeCats.contains(in)) {
+        if (!incomeCategories.contains(userInput)) {
             return "";
         }
 
-        return in;
+        return userInput;
     }
 
     public BudgetType askData() {
@@ -54,11 +54,11 @@ public class IncomeTracker extends Tracker {
 
     public void addToCashFlow(HashMap<String, Double> cashFlow) {
         
-        for (BudgetType i : this.budgetTypes) {
-            if (cashFlow.containsKey(i.getMonth())) {
-                cashFlow.put(i.getMonth(), cashFlow.get(i.getMonth()) + i.getAmount());
+        for (BudgetType income : this.budgetTypes) {
+            if (cashFlow.containsKey(income.getMonth())) {
+                cashFlow.put(income.getMonth(), cashFlow.get(income.getMonth()) + income.getAmount());
             } else {
-                cashFlow.put(i.getMonth(), i.getAmount());
+                cashFlow.put(income.getMonth(), income.getAmount());
             }
         }
         
