@@ -1,5 +1,5 @@
 
-public class Expense {
+public class Expense extends BudgetType {
     private String category;
     private Double amount;
     private String comment;

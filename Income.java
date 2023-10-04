@@ -1,4 +1,4 @@
-public class Income {
+public class Income extends BudgetType {
     private String category;
     private Double amount;
     private String comment;
